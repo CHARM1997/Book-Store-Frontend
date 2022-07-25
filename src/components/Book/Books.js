@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from 'react'
 
 import axios from 'axios';
+import Book from './Book';
 const URL = "http://localhost:5000/books";
 const fetchHandler = async() => {
     return await axios.get(URL).then((res)=> res.data)
 };
 const Books = () => {
-    const [Books, setBooks] = useState();
+    const [books, setBooks] = useState();
     useEffect(() => {
-        fetchHandler().then(data=>setBooks(data))
+        fetchHandler().then(data=>setBooks(data.books))
     }, []);
-    console.log(Books);
+    console.log(books);
   return (
-    <div>All Books are here</div>
+    <div>
+        <ul>
+            {books && books.map((book, i) =>(
+                <div key={i}>
+                <Book book={book}/>
+                </div>
+            ))}
+        </ul>
+    </div>
   )
 };
 
