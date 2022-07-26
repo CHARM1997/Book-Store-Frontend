@@ -1,18 +1,19 @@
 import { Button } from '@mui/material';
-import React from 'react'
+import React from 'react';
+import "./Book.css";
 
 const Book = (props) => {
   const { _id, name, author, description, price, image } = props.book;
   return (
-    <div>
+    <div className="card">
         <img src={image} alt={name} width="300" height="400"/>
-        <article> By {author}</article>
+        <article>By {author}</article>
         <h3>{name}</h3>
         <p>{description}</p>
-        <h2>Rs {price}</h2>
-        <h5>{_id}</h5>
-        <Button>Update</Button>
-        <Button>Delete</Button>
+        <h3>Rs {price} /=</h3>
+        <h5>cupon code - {_id}</h5>
+        <Button sx={{mt:"auto"}}>Update</Button>
+        <Button sx={{mt:"auto"}}>Delete</Button>
     </div>
   )
 };

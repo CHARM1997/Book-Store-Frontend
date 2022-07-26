@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useState } from 'react';
+import "./Book.css";
 import axios from 'axios';
 import Book from './Book';
 const URL = "http://localhost:5000/books";
@@ -16,9 +16,9 @@ const Books = () => {
     <div>
         <ul>
             {books && books.map((book, i) =>(
-                <div key={i}>
+                <li className="book" key={i}>
                 <Book book={book}/>
-                </div>
+                </li>
             ))}
         </ul>
     </div>
